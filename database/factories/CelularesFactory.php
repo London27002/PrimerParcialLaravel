@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Categoria; 
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Celulares>
@@ -26,6 +28,8 @@ class CelularesFactory extends Factory
             'descripcion' => $this->faker->paragraph(),
             'color' => $this->faker->safeColorName(),
             'imei' => $this->faker->unique()->numerify('###############'), // 15 dígitos
+            'categoria_id' => Categoria::factory(),
+            
         ];
     }
 }

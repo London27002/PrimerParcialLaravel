@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CelularesUpdateRequest extends FormRequest
+class CategoriaUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,10 @@ class CelularesUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'modelo' => 'required|string|max:255',
-             'categoria_id' => 'required|exists:categorias,id'
+            'nombre' => 'sometimes|string|max:100',
+            // 'descripcion' => 'nullable|string',
+            // 'activa' => 'boolean',
+            'descuento' => 'nullable|numeric|min:0|max:100'
         ];
     }
 }

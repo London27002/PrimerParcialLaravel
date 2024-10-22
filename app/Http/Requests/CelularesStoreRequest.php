@@ -31,6 +31,7 @@ class CelularesStoreRequest extends FormRequest
             'descripcion' => 'nullable|string',
             'color' => 'nullable|string',
             'imei' => 'required|string|unique:celulares,imei',
+            'categoria_id' => 'required|exists:categorias,id'
         ];
     }
 }

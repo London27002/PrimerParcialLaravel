@@ -17,6 +17,11 @@ class Celulares extends Model
         'en_oferta',
         'descripcion',
         'color',
-        'imei'
+        'imei',
+        'categoria_id'
     ];
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
 }

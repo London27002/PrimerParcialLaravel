@@ -22,22 +22,23 @@ class CelularesController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(CelularesStoreRequest $request)
-    {
-        $celulares = Celulares::create($request ->all());
-        return response()->json(['celular'=> $celulares], Response::HTTP_CREATED);
-
-    }
+{
+    $celular = Celulares::create($request->validated());
+    return response()->json(['celular' => $celular], 201);
+}
 
     /**
      * Display the specified resource.
      */
     public function show($id)
     {
-        if (!Celulares::find($id)) {
-            return response()->json(['message'=> 'Venta no encontrada'], 404);
+        $celular = Celulares::with('categoria')->find($id);
+    
+        if (!$celular) {
+            return response()->json(['message' => 'Celular no encontrado'], 404);
         }
-        return Celulares::find($id);
-
+    
+        return response()->json($celular, 200);
     }
 
     /**
@@ -45,14 +46,10 @@ class CelularesController extends Controller
      */
     public function update(CelularesUpdateRequest $request, $id)
     {
-        // Busca el registro por ID
-        $celulares = Celulares::findOrFail($id);
-    
-        // Actualiza el registro con los datos validados
-        $celulares->update($request->validated());
-    
-        // Devuelve el registro actualizado en formato JSON
-        return response()->json($celulares, 200);
+        $celular = Celulares::findOrFail($id);
+        $celular->update($request->validated());
+
+        return response()->json(['celular' => $celular], Response::HTTP_OK);
     }
     /**
      * Remove the specified resource from storage.

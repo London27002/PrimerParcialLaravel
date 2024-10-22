@@ -84,7 +84,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "4|syI4F1IVxfx9VGhkUyk8dTlz8zT8rt6AH3oQPSFA15506e59",
+							"value": "1|yOTI1QFOt2dvo4vyAuEycXHNmOTtw6bUe82S11Pt8927354d",
 							"type": "string"
 						}
 					]
@@ -120,7 +120,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "4|syI4F1IVxfx9VGhkUyk8dTlz8zT8rt6AH3oQPSFA15506e59",
+							"value": "1|yOTI1QFOt2dvo4vyAuEycXHNmOTtw6bUe82S11Pt8927354d",
 							"type": "string"
 						}
 					]
@@ -135,7 +135,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"modelo\": \"Tecno Spark 20 pro plus\",\r\n    \"marca\": \"Tecno\",\r\n    \"precio\": 999.99,\r\n    \"stock\": 50,\r\n    \"fecha_venta\": \"2024-10-14\",\r\n    \"en_oferta\": false,\r\n    \"descripcion\": \"Smartphone de alta gama.\",\r\n    \"color\": \"Azul\",\r\n    \"imei\": \"123456789012389\"\r\n}",
+					"raw": "{\r\n  \"modelo\": \"Galaxy S21\",\r\n  \"marca\": \"Samsung\",\r\n  \"precio\": 3200000,\r\n  \"stock\": 50,\r\n  \"fecha_venta\": \"2024-10-21\",\r\n  \"en_oferta\": true,\r\n  \"descripcion\": \"Un excelente smartphone.\",\r\n  \"color\": \"Negro\",\r\n  \"imei\": \"123456789012345\",\r\n  \"categoria_id\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -165,7 +165,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "4|syI4F1IVxfx9VGhkUyk8dTlz8zT8rt6AH3oQPSFA15506e59",
+							"value": "1|yOTI1QFOt2dvo4vyAuEycXHNmOTtw6bUe82S11Pt8927354d",
 							"type": "string"
 						}
 					]
@@ -202,7 +202,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "4|syI4F1IVxfx9VGhkUyk8dTlz8zT8rt6AH3oQPSFA15506e59",
+							"value": "1|yOTI1QFOt2dvo4vyAuEycXHNmOTtw6bUe82S11Pt8927354d",
 							"type": "string"
 						}
 					]
@@ -217,7 +217,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"modelo\": \"Tecno spark 20\"\r\n}",
+					"raw": "{\r\n  \"modelo\": \"Tecno\",\r\n  \"categoria_id\": 2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -248,7 +248,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "4|syI4F1IVxfx9VGhkUyk8dTlz8zT8rt6AH3oQPSFA15506e59",
+							"value": "1|yOTI1QFOt2dvo4vyAuEycXHNmOTtw6bUe82S11Pt8927354d",
 							"type": "string"
 						}
 					]
@@ -272,6 +272,157 @@
 						"api",
 						"celulares",
 						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarCategorias",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearCategoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Smartphones\",\r\n  \"descripcion\": \"Categoría de teléfonos inteligentes\",\r\n  \"activa\": true,\r\n  \"descuento\": 15\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerCategoria",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/categorias/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categorias",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AcutlizarCategoria",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Computador\",\r\n  \"descuento\": 9.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/categorias/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categorias",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DestroyCategoria",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/categorias/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categorias",
+						"1"
 					]
 				}
 			},
